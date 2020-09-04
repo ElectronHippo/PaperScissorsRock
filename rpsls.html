@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                	.button {
+		background-color: #3e7dcf;
+		border: 8px outset #40dbe085;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		font-family: Arial, Helvetica, sans-serif;
+            }
+    </style>
+    <script>
+        rules = [ //Defines the rules of the game.//
+            'Rock blunts Scissors & Rock crushes Lizard', 
+            'Paper covers Rock & Paper disproves Spock',
+            'Scissors cuts Paper & Scissors decapitates Lizard',
+            'Lizard eats Paper & Lizard poisons Spock',
+            'Spock vaporizes Rock & Spock smashes Scissors'
+        ];
+        playerscore = 0; //Defines the 'score' variable - this is used to store the players score.//
+        computerscore = 0; //Defines the 'computerscore' variable - this is used to store the computers score.//
+        function defineButtons(){ //Defines the buttons used to select the Option.//
+            for(i = 0; i != rules.length; i++){
+                buttonName = rules[i].split(' ')[0];
+                document.getElementById('buttonArea').innerHTML += '<button class="button" onclick="main('+ i +')">' + buttonName +'</button> ';
+            };
+        };
+        function computerSelect(){ //Selects an Option for the computer.//
+            computerSelection = Math.floor(Math.random()* rules.length);
+            return computerSelection;
+        };
+        function calc(userSelection, computerSelection){ //Calculates the victor.//
+            for(i = 0; i <= rules[0].split('&').length; i++){ //While the variable i is less than or equal to the number of '&' symbols - This is to cater for more or less 'rules'.//
+                if (rules[userSelection].split(' ')[0] == rules[computerSelection].split('& ')[i].split(' ')[2]){
+                    computerscore +=1;
+                    return rules[computerSelection].split('& ')[i] + ' | Score: ' + playerscore + ' / ' + computerscore; //If the computer wins, return the relevant death message.//
+                 };
+                if (rules[computerSelection].split(' ')[0] == rules[userSelection].split('& ')[i].split(' ')[2]){
+                    playerscore +=1;
+                    return rules[userSelection].split('& ')[i] + ' | Score: ' + playerscore + ' / ' + computerscore; //If the player wins, return the relevant death message.//
+                 };
+                if (computerSelection == userSelection){
+                    return "It's a draw!"; //If its a draw, return 'its a draw'.//
+                };
+            };
+        }
+        function main(userSelection){ //This is called upon the pressing of a button.
+            document.getElementById("textArea").innerHTML = calc(userSelection, computerSelect());
+        };  
+    </script>
+</head>
+<body onload="defineButtons()">
+    <center><br><span id ='textArea'></span><br><br><span id='buttonArea'></span></center>
+</body>
+</html>
