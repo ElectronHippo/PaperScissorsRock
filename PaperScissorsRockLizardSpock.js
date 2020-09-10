@@ -11,7 +11,7 @@ computerscore = 0; //Defines the 'computerscore' variable - this is used to stor
 function init(){ //The function that runs when the body section of the HTML is loaded.//
     while(true){ //Runs forever until it exits with a valid name.//
         name = window.prompt('Enter your name (Must be less than 20 characters)');
-        if(name == null){ //If they cancel entering the input, set their name to 'bob'.//
+        if(name == 'null'){ //If they cancel entering the input, set their name to 'bob'.//
             name = 'bob'
         }
        if(name.split('<').length == 1){ //If there are no opening angled brackets in their name, ie '<'.//
