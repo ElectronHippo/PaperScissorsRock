@@ -8,15 +8,12 @@ rules = [ //Defines the rules of the game.//
 ];
 playerscore = 0; //Defines the 'score' variable - this is used to store the players score.//
 computerscore = 0; //Defines the 'computerscore' variable - this is used to store the computers score.//
-function init(){
-    while(true){
-        promptMessage = 'Enter your name (Must be less than 20 characters)'
-        name = window.prompt(promptMessage);
-        console.log('reeeee')
-        console.log(name.split('<').length)
-       if(name.split('<').length == 1){
+function init(){ //The function that runs when the body section of the HTML is loaded.//
+    while(true){ //Runs forever until it exits with a valid name.//
+        name = window.prompt('Enter your name (Must be less than 20 characters)');
+       if(name.split('<').length == 1){ //If there are no opening angled brackets in their name, ie '<'.//
             if(name.length <= 20 && name.length != 0){ //If the inputted message meets all parameters, then return it.//
-                defineButtons()
+                defineButtons(); //Exits the function and runs the definebuttons() script.//
                 return name;
             }
             else{
@@ -24,14 +21,14 @@ function init(){
                     alert('Name may not be longer than 20 characters');
                 }
                 else if(name.length == 0){ //If the person doesnt bother entering a name, give them one.//
-                    name = 'товарищ сталин';
-                    defineButtons()
-                    return 'товарищ сталин';
+                    name = 'bob';
+                    defineButtons(); //Exits the function and runs the definebuttons() script.//
+                    return name;
                 };
             };
         }
-        else{
-        alert('You may not put angled brackets into your name')
+        else{ //If there ARE opening angled brackets in their name.//
+        alert('You may not put angled brackets into your name');
         };
     };
 };
