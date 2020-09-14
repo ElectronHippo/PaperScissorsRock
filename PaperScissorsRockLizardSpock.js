@@ -47,7 +47,7 @@ function computerSelect(){ //Selects an Option for the computer.//
     return computerSelection; //Returns the random number.//
 };
 function calc(userSelection, computerSelection){ //Calculates the victor.//
-    for(i = 0; i <= rules[0].split('&').length; i++){ //While the variable i is less than or equal to the number of '&' symbols - This is to cater for more or less 'rules'.//
+    for(i = 0; i <= rules[0].split('& ').length; i++){ //While the variable i is less than or equal to the number of '&' symbols - This is to cater for more or less 'rules'.//
         if (rules[userSelection].split(' ')[0] == rules[computerSelection].split('& ')[i].split(' ')[2]){ //if the player's choice equals any of the things that the computer's choice kills.//
             computerscore +=1; // adds one to the computer's score.//
             return rules[computerSelection].split('& ')[i] + ' | ' + name + "'s Score: " + playerscore + ' / ' + computerscore; //If the computer wins, return the relevant death message.//
