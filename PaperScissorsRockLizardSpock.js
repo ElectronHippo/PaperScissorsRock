@@ -47,7 +47,7 @@ function computerSelect(){ //Selects an Option for the computer.//
     return computerSelection; //Returns the random number.//
 };
 function calc(userSelection, computerSelection){ //Calculates the victor.//
-    for(i = 0; i <= rules[0].split('& ').length; i++){ //While the variable i is less than or equal to the number of '&' symbols - This is to cater for more or less 'rules'.//
+    for(i = 0; i <= rules[0].split('&').length; i++){ //While the variable i is less than or equal to the number of '&' symbols - This is to cater for more or less 'rules'.//
         if (rules[userSelection].split(' ')[0] == rules[computerSelection].split('& ')[i].split(' ')[2]){ //if the player's choice equals any of the things that the computer's choice kills.//
             computerscore +=1; // adds one to the computer's score.//
             return rules[computerSelection].split('& ')[i] + ' | ' + name + "'s Score: " + playerscore + ' / ' + computerscore; //If the computer wins, return the relevant death message.//
@@ -60,6 +60,7 @@ function calc(userSelection, computerSelection){ //Calculates the victor.//
             return "It's a draw!" + ' | ' + name + "'s Score: " + playerscore + ' / ' + computerscore; //If its a draw, return 'its a draw'.//
         };
     };
+    return "It had no effect!"; //This is in case anyone decides to remove one kill statement, making it unbalanced and therefore occasionally not a win, loss or draw.//
 };    
 function main(userSelection){ //This is called upon the pressing of a button.
     document.getElementById("textArea").innerHTML = calc(userSelection, computerSelect()); //Sends the output of calc() to the 'textArea' span.//
