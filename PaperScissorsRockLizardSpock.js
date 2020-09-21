@@ -63,7 +63,7 @@ function calc(userSelection, computerSelection){ //Calculates the victor.//
     };
     return "It had no effect!"; //This is in case anyone decides to remove one kill statement, making it unbalanced and therefore occasionally not a win, loss or draw.//
 }catch(err){
-    alert("Error in Calc() - Bad rules list")
+    console.log("Error in Calc() - Bad rules list") //Logs error in console.//
     return null
 };
 };
